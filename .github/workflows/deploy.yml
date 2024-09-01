@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Check for build and type issues
+  deploy:
+    name: CI/CD Pipeline
     runs-on: ubuntu-latest
 
     steps:
@@ -21,12 +21,12 @@ jobs:
       - name: install node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
           run_install: false
 
       - name: Get pnpm store directory
@@ -52,3 +52,13 @@ jobs:
         # ensure build works
       - name: Run build
         run: pnpm build
+
+      - name: Deploy to cloudflare pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: heyris.me
+          directory: ./dist
+          branch: main

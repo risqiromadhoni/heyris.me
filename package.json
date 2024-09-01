@@ -1,5 +1,6 @@
 {
 	"name": "heyris.me",
+	"description": "Risqi Romadhoni's personal blog",
 	"version": "1.0.0",
 	"private": false,
 	"author": {
@@ -11,7 +12,6 @@
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
-		"postbuild": "pagefind --site dist",
 		"preview": "astro preview",
 		"lint": "biome lint .",
 		"format": "pnpm run format:code && pnpm run format:imports",
@@ -21,6 +21,7 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "3.1.5",
+		"@astrojs/partytown": "^2.1.2",
 		"@astrojs/rss": "4.0.7",
 		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/tailwind": "5.1.0",
@@ -51,7 +52,8 @@
 		"@types/hast": "^3.0.4",
 		"@types/mdast": "^4.0.4",
 		"autoprefixer": "^10.4.20",
-		"pagefind": "^1.1.0",
+		"husky": "^9.1.5",
+		"lint-staged": "^15.2.9",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.6",

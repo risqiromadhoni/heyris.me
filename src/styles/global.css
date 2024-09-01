@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root,
+	:root[data-theme="light"] {
+		color-scheme: light;
+		--theme-bg: 0deg 0% 96%;
+		--theme-link: 50deg 100% 60%;
+		--theme-text: 203deg 11% 15%;
+		--theme-accent: 158deg 93% 51%;
+		--theme-accent-2: 0deg 0% 7%;
+		--theme-quote: 158deg 93% 51%;
+	}
+
+	:root[data-theme="dark"] {
+		color-scheme: dark;
+		--theme-bg: 210deg 6% 12%;
+		--theme-link: 325deg 100% 61%;
+		--theme-text: 220deg 3% 79%;
+		--theme-accent: 68deg 93% 51%;
+		--theme-accent-2: 0deg 0% 93%;
+		--theme-quote: 68deg 93% 51%;
+	}
+}

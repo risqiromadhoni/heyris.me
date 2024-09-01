@@ -16,6 +16,8 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 // Rehype plugins
 import rehypeExternalLinks from "rehype-external-links";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
 	image: {
@@ -30,6 +32,11 @@ export default defineConfig({
 		}),
 		sitemap(),
 		mdx(),
+		partytown({
+			config: {
+				debug: process.env.NODE_ENV === "development",
+			},
+		}),
 	],
 	markdown: {
 		rehypePlugins: [
@@ -41,17 +48,20 @@ export default defineConfig({
 				},
 			],
 		],
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime, remarkDirective, remarkAdmonitions],
+		remarkPlugins: [
+			remarkUnwrapImages,
+			remarkReadingTime,
+			remarkDirective,
+			remarkAdmonitions,
+		],
 		remarkRehype: {
 			footnoteLabelProperties: {
 				className: [""],
 			},
 		},
 	},
-	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
-	// ! Please remember to replace the following site property with your own domain
-	site: "https://astro-cactus.chriswilliams.dev/",
+	site: "https://heyris.me/",
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],

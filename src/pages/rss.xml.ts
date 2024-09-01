@@ -1,5 +1,6 @@
+import type { CollectionEntry } from "astro:content";
 import { getAllPosts } from "@/data/post";
-import { siteConfig } from "@/site-config";
+import { siteConfig } from "@/site.config";
 import rss from "@astrojs/rss";
 
 export const GET = async () => {
@@ -9,7 +10,7 @@ export const GET = async () => {
 		title: siteConfig.title,
 		description: siteConfig.description,
 		site: import.meta.env.SITE,
-		items: posts.map((post) => ({
+		items: posts.map((post: CollectionEntry<"post">) => ({
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.publishDate,

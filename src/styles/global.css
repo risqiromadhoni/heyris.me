@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	@apply overscroll-none;
+}
+
 @layer base {
 	:root,
 	:root[data-theme="light"] {

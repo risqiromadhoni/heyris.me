@@ -35,8 +35,8 @@ export const menuLinks: { path: string; title: string }[] = [
 		title: "Blog",
 	},
 	{
-		path: "/portofolio/",
-		title: "Portofolio",
+		path: "/apps/",
+		title: "Apps",
 	},
 ];
 
@@ -55,8 +55,6 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 		uiLineHeight: "inherit",
 	},
 	themeCssSelector(theme, { styleVariants }) {
-		// If one dark and one light theme are available
-		// generate theme CSS selectors compatible with cactus-theme dark mode switch
 		if (styleVariants.length >= 2) {
 			const baseTheme = styleVariants[0]?.theme;
 			const altTheme = styleVariants.find(
@@ -65,10 +63,8 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 			if (theme === baseTheme || theme === altTheme)
 				return `[data-theme='${theme.type}']`;
 		}
-		// return default selector
 		return `[data-theme="${theme.name}"]`;
 	},
-	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
 	themes: ["night-owl", "github-light"],
 	useThemedScrollbars: false,
 	plugins: [pluginLineNumbers()],

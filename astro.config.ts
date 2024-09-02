@@ -7,7 +7,6 @@ import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import { expressiveCodeOptions } from "./src/site.config";
 
-import AstroPWA from "@vite-pwa/astro";
 // Remark plugins
 import remarkDirective from "remark-directive";
 import remarkUnwrapImages from "remark-unwrap-images";
@@ -39,11 +38,6 @@ export default defineConfig({
 				forward: ["dataLayer.push"],
 			},
 		}),
-		// AstroPWA({
-		// 	workbox: {
-		// 		navigateFallback: "/404",
-		// 	},
-		// }),
 	],
 	markdown: {
 		rehypePlugins: [

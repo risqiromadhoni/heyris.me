@@ -35,6 +35,7 @@ export default defineConfig({
 		partytown({
 			config: {
 				debug: process.env.NODE_ENV === "development",
+				forward: ["dataLayer.push"],
 			},
 		}),
 	],

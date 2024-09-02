@@ -49,6 +49,10 @@ jobs:
       - name: Run check
         run: pnpm astro check
 
+      - name: Set environment variables
+        run: echo "WEBMENTION_API_KEY=${{ secrets.WEBMENTION_API_KEY }}" >> .env \
+          && echo "SITE=heyris.me" >> .env
+
         # ensure build works
       - name: Run build
         run: pnpm build

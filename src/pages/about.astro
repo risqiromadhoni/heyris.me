@@ -22,7 +22,7 @@ const githubLink = socialLinks.find((link) => link.name.includes("github"));
 			href={githubLink?.link}
 			rel={`noreferrer ${githubLink?.isWebmention ? "me authn" : ""}`}
 			target="_blank"
-			class="mx-auto flex w-1/2 justify-center grayscale hover:filter-none"
+			class="mx-auto flex w-1/2 justify-center object-cover grayscale hover:filter-none"
 		>
 			<Image
 				alt="A cartoon cactus looking at the 'Astro.build' logo"

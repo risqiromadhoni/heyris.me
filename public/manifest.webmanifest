@@ -44,9 +44,25 @@
 			"type": "image/png"
 		},
 		{
-			"src": "images/icons/icon-512x512.png",
+			"src": "icons/icon-512x512.png",
 			"sizes": "512x512",
 			"type": "image/png"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "images/screenshots/heyris-1290x2796.png",
+			"sizes": "1290x2796",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Home mobile view"
+		},
+		{
+			"src": "images/screenshots/heyris-2554x1874.png",
+			"sizes": "2554x1874",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Home desktop view"
 		}
 	]
 }

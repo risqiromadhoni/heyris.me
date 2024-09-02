@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import BaseHead from "@/components/BaseHead.astro";
 import SkipLink from "@/components/SkipLink.astro";
 import ThemeProvider from "@/components/ThemeProvider.astro";
@@ -16,9 +17,10 @@ const {
 } = Astro.props;
 ---
 
-<html class="scroll-smooth" lang={siteConfig.lang}>
+<html class="scroll-smooth" lang={siteConfig.lang} transition:animate="none">
 	<head>
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<ViewTransitions />
 	</head>
 	<body
 		class="relative mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-mono text-sm font-normal text-textColor antialiased sm:px-8"
@@ -30,7 +32,7 @@ const {
 		<ThemeProvider />
 		<SkipLink />
 		<Header />
-		<main id="main">
+		<main id="main" transition:animate="fade">
 			<slot />
 		</main>
 		<Footer />

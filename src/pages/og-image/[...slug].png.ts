@@ -37,22 +37,26 @@ const markup = (title: string, pubDate: string) =>
 		</div>
 		<div tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl">
 			<div tw="flex items-center">
-				<svg height="60" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 480">
-					<path
-						d="M181.334 93.333v-40L226.667 80v40l-45.333-26.667ZM136.001 53.333 90.667 26.667v426.666L136.001 480V53.333Z"
-						fill="#B04304"
-					></path>
-					<path
-						d="m136.001 119.944 45.333-26.667 45.333 26.667-45.333 26.667-45.333-26.667ZM90.667 26.667 136.001 0l45.333 26.667-45.333 26.666-45.334-26.666ZM181.334 53.277l45.333-26.666L272 53.277l-45.333 26.667-45.333-26.667ZM0 213.277l45.333-26.667 45.334 26.667-45.334 26.667L0 213.277ZM136 239.944l-45.333-26.667v53.333L136 239.944Z"
-						fill="#FF5D01"
-					></path>
-					<path
-						d="m136 53.333 45.333-26.666v120L226.667 120V80L272 53.333V160l-90.667 53.333v240L136 480V306.667L45.334 360V240l45.333-26.667v53.334L136 240V53.333Z"
-						fill="#53C68C"
-					></path>
-					<path d="M45.334 240 0 213.334v120L45.334 360V240Z" fill="#B04304"></path>
+				<svg width="60" height="60" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="14" cy="14" r="14" fill="#D5F60C" />
+					<g clip-path="url(#clip0_6_3)">
+						<path d="M14 5V7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M14 21V23" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M14 10V18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M10 19V21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M6 13V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M22 13V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M10 7V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M18 9V7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M18 21V13" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+					</g>
+					<defs>
+						<clipPath id="clip0_6_3">
+							<rect width="24" height="24" fill="white" transform="translate(2 2)" />
+						</clipPath>
+					</defs>
 				</svg>
-				<p tw="ml-3 font-semibold">${siteConfig.title}</p>
+				<p tw="ml-3 font-semibold">${siteConfig.site}</p>
 			</div>
 			<p>by ${siteConfig.author}</p>
 		</div>

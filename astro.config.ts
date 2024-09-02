@@ -8,9 +8,9 @@ import { defineConfig } from "astro/config";
 import { expressiveCodeOptions } from "./src/site.config";
 
 // Remark plugins
-import remarkDirective from "remark-directive"; /* Handle ::: directives as nodes */
+import remarkDirective from "remark-directive";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
+import { remarkAdmonitions } from "./src/plugins/remark-admonitions";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 
 // Rehype plugins

@@ -1,5 +1,6 @@
 export interface SiteConfig {
 	author: string;
+	site: string;
 	date: {
 		locale: string | string[] | undefined;
 		options: Intl.DateTimeFormatOptions;

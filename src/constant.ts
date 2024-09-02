@@ -14,7 +14,7 @@ export const socialLinks: SocialLink[] = [
 	},
 	{
 		friendlyName: "LinkedIn",
-		link: "https://www.linkedin.com/in/risqir",
+		link: "https://linkedin.com/in/risqir",
 		name: "mdi:linkedin",
 		isWebmention: true,
 	},
@@ -25,8 +25,14 @@ export const socialLinks: SocialLink[] = [
 		isWebmention: true,
 	},
 	{
+		friendlyName: "WhatsApp",
+		link: "https://wa.me/+6289692209988",
+		name: "mdi:whatsapp",
+		isWebmention: true,
+	},
+	{
 		friendlyName: "Email",
 		link: "mailto:risqi.romadhoni96@gmail.com",
-		name: "mdi:email",
+		name: "mdi:gmail",
 	},
 ];

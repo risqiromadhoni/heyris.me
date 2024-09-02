@@ -9,7 +9,17 @@ const year = new Date().getFullYear();
 >
 	<div class="me-0 sm:me-4">
 		&copy; {siteConfig.author}
-		{year}.<span class="inline-block">&nbsp;🚀&nbsp;Astro Cactus</span>
+		{year}.<span class="inline-block"
+			>&nbsp;🚀&nbsp;hosted by
+			<a
+				href="http://cloudflare.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="hover:text-orange-400"
+			>
+				Cloudflare</a
+			>
+		</span>
 	</div>
 	<nav
 		aria-label="More on this site"

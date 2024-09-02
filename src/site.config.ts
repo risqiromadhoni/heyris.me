@@ -4,7 +4,7 @@ import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 export const siteConfig: SiteConfig = {
 	author: "Risqi Romadhoni",
-	site: "www.heyris.me",
+	site: "heyris.me",
 	date: {
 		locale: "en-US",
 		options: {

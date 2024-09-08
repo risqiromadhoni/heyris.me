@@ -4,28 +4,29 @@ import type { CollectionEntry } from "astro:content";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
 
-import { MastheadBlog } from "@/components/masthead";
+import { MastheadExperience } from "@/components/masthead";
 import BaseLayout from "./Base.astro";
 
 interface Props {
-	post: CollectionEntry<"post">;
+	experience: CollectionEntry<"experience">;
 }
 
-const { post } = Astro.props;
+const { experience } = Astro.props;
 const {
-	data: { description, ogImage, publishDate, title, updatedDate },
+	data: { description, company },
 	slug,
-} = post;
-const socialImage = ogImage ?? `/og-image/${slug}.png`;
-const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString();
-const { headings } = await post.render();
+} = experience;
+const articleDate = new Date(experience.data.startAt).toISOString();
+const socialImage = `/og-image/${slug}.png`;
+const title = `Working experience at ${company.name}`;
+const { headings } = await experience.render();
 ---
 
 <BaseLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
 	<div class="gap-x-10 lg:flex lg:items-start">
 		{!!headings.length && <TOC headings={headings} />}
 		<article class="flex-grow break-words">
-			<div id="blog-hero"><MastheadBlog content={post} /></div>
+			<div id="blog-hero"><MastheadExperience content={experience} /></div>
 			<div
 				class="prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
 			>

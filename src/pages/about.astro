@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import aboutImg from "@/assets/risqiromadhoni.png";
+import { getAllExperiences, sortExperienceByDate } from "@/data/experience";
 import PageLayout from "@/layouts/Base.astro";
+import { getFormattedDate } from "@/utils/date";
 import { Icon } from "astro-icon/components";
 import { socialLinks, workingExperiences } from "../constant";
 
@@ -10,6 +12,8 @@ const meta = {
 	title: "About",
 };
 const githubLink = socialLinks.find((link) => link.name.includes("github"));
+const experiences = await getAllExperiences();
+const sortedExperiences = sortExperienceByDate(experiences);
 ---
 
 <PageLayout meta={meta}>
@@ -54,47 +58,57 @@ const githubLink = socialLinks.find((link) => link.name.includes("github"));
 		<div class="space-y-4" role="listbox">
 			<ul class="flex w-full flex-col" role="list">
 				{
-					workingExperiences.map((workingExperience) => (
-						<li data-testid={workingExperience.companyName} role="listitem" class="group">
+					sortedExperiences.map((experience) => (
+						<li data-testid={experience.slug} role="listitem" class="group">
 							<article class="relative flex flex-col gap-2">
 								<span class="absolute left-0 grid justify-center bg-transparent transition-opacity duration-200">
 									<span class="bg-blue-gray-100 h-full w-0.5" />
 								</span>
 								<a
-									href={workingExperience.companyUrl}
-									target="_blank"
-									rel="noopener noreferrer"
 									class="flex items-center gap-4"
-									title={workingExperience.companyUrl}
+									href={`/experiences/${experience.slug}`}
+									title={experience.data.company.name}
 								>
 									<span class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full bg-bgColor p-0 text-white transition-all duration-200 group-hover:border-2 group-hover:border-accent">
 										<Image
-											src={workingExperience.companyLogo}
+											src={experience.data.company.logo}
 											fetchpriority="auto"
 											loading="lazy"
-											alt={workingExperience.companyName}
-											data-label={workingExperience.companyName}
+											alt={experience.data.company.name}
+											data-label={experience.data.company.name}
 											class="relative inline-block h-9 w-9 !rounded-full border-2 border-bgColor object-cover object-center"
 										/>
 									</span>
 									<div>
-										<h5 class="title text-base">{workingExperience.companyName}</h5>
+										<h5 class="title mb-2 text-base group-hover:cactus-link">
+											{experience.data.company.name}
+										</h5>
 										<ul class="flex flex-wrap gap-2">
 											<li class="flex items-center gap-1">
 												<Icon name="mdi:calendar-blank-outline" class="h-4 w-4 text-accent" />
-												{workingExperience.startDate} - {workingExperience.endDate}
+												{getFormattedDate(experience.data.startAt, {
+													month: "short",
+													year: "numeric",
+												})}{" "}
+												-{" "}
+												{!experience.data.endAt
+													? "Present"
+													: getFormattedDate(experience.data.endAt, {
+															month: "short",
+															year: "numeric",
+														})}
 											</li>
 											<li class="flex items-center gap-1">
 												<Icon name="mdi:location-outline" class="h-4 w-4 text-accent" />
-												{workingExperience.companyLocation}
+												{experience.data.company.location}
 											</li>
 											<li class="flex items-center gap-1">
 												<Icon name="mdi:building" class="h-4 w-4 text-accent" />
-												{workingExperience.workingCategory}
+												{experience.data.category}
 											</li>
 											<li class="flex items-center gap-1">
 												<Icon name="mdi:file-document-outline" class="h-4 w-4 text-accent" />
-												{workingExperience.jobContract}
+												{experience.data.contract}
 											</li>
 										</ul>
 									</div>
@@ -102,17 +116,7 @@ const githubLink = socialLinks.find((link) => link.name.includes("github"));
 								<div class="flex gap-4 pb-8">
 									<span class="pointer-events-none invisible h-full flex-shrink-0" />
 									<div>
-										<input type="radio" class="peer hidden" id={workingExperience.id} />
-										<p class="line-clamp-3 text-balance antialiased peer-checked:line-clamp-none">
-											{workingExperience.description}
-										</p>
-										<label
-											class="text-accent peer-checked:hidden"
-											for={workingExperience.id}
-											role="button"
-										>
-											Read more
-										</label>
+										<p class="text-balance antialiased">{experience.data.description}</p>
 									</div>
 								</div>
 							</article>

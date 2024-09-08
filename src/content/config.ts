@@ -33,4 +33,30 @@ const post = defineCollection({
 	type: "content",
 });
 
-export const collections = { post };
+const experience = defineCollection({
+	schema: ({ image }) =>
+		z.object({
+			company: z.object({
+				logo: image(),
+				coverImage: image().optional(),
+				name: z.string(),
+				location: z.string(),
+				url: z.string().url(),
+			}),
+			contract: z.string({
+				description:
+					"Contract type of the job e.g. Full-time, Part-time, Contract",
+			}),
+			category: z.string({
+				description: "Working category e.g. Remote, On-site",
+			}),
+			startAt: z.string().transform((str) => new Date(str)),
+			endAt: z
+				.string()
+				.optional()
+				.transform((str) => (str ? new Date(str) : undefined)),
+			description: z.string().min(50).max(300),
+		}),
+});
+
+export const collections = { post, experience };

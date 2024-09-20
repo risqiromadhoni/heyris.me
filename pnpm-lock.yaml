@@ -26,9 +26,6 @@ importers:
       '@expressive-code/plugin-line-numbers':
         specifier: ^0.36.1
         version: 0.36.1
-      '@splitbee/web':
-        specifier: ^0.3.0
-        version: 0.3.0
       astro:
         specifier: 4.15.1
         version: 4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4)
@@ -874,9 +871,6 @@ packages:
     resolution: {integrity: sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA==}
     engines: {node: '>= 8.0.0'}
     hasBin: true
-
-  '@splitbee/web@0.3.0':
-    resolution: {integrity: sha512-jNPDKg0GQGa4jCaBc6JQsv0NHmBA80WCwZE49nFyhcbo32WF0GyqXeice7ZApy7OUHI16bAUAzm4MOQw3gvxfQ==}
 
   '@tailwindcss/aspect-ratio@0.4.2':
     resolution: {integrity: sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==}
@@ -4082,8 +4076,6 @@ snapshots:
     dependencies:
       fflate: 0.7.4
       string.prototype.codepointat: 0.2.1
-
-  '@splitbee/web@0.3.0': {}
 
   '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.10)':
     dependencies:

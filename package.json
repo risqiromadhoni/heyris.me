@@ -26,7 +26,6 @@
 		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/tailwind": "5.1.0",
 		"@expressive-code/plugin-line-numbers": "^0.36.1",
-		"@splitbee/web": "^0.3.0",
 		"astro": "4.15.1",
 		"astro-expressive-code": "^0.36.1",
 		"astro-icon": "^1.1.1",

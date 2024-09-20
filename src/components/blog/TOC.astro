@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n";
 import type { MarkdownHeading } from "astro";
 import { generateToc } from "src/utils/generateToc";
 import TOCHeading from "./TOCHeading.astro";
@@ -8,13 +9,14 @@ interface Props {
 }
 
 const { headings } = Astro.props;
-
 const toc = generateToc(headings);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <aside class="sticky top-20 order-2 -me-32 hidden basis-64 lg:block">
 	<details open name="Table of Contents">
-		<summary role="button" class="font-semibold text-accent-2">Table of Contents</summary>
+		<summary role="button" class="font-semibold text-accent-2">{t("post.toc")}</summary>
 		<ul class="mt-4 text-xs">
 			{toc.map((heading) => <TOCHeading heading={heading} />)}
 		</ul>

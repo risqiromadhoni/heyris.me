@@ -17,6 +17,8 @@ export const ui = {
 		"menu.post": "Blog",
 		"menu.project": "Project",
 		"menu.resource": "Resource",
+		"post.toc": "Table of Contents",
+		"common.viewAll": "View all",
 	},
 	id: {
 		"social.findMe": "Temukan saya di",
@@ -24,5 +26,7 @@ export const ui = {
 		"menu.post": "Blog",
 		"menu.project": "Proyek",
 		"menu.resource": "Sumber",
+		"post.toc": "Daftar Isi",
+		"common.viewAll": "Lihat semua",
 	},
 } as const;

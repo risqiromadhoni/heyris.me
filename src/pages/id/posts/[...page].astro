@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import Pagination from "@/components/Paginator.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import { getAllPosts, getUniqueTags, groupPostsByYear, sortMDByDate } from "@/data/post";
-import { LANGUAGE } from "@/i18n";
+import { LANGUAGE, getLangFromUrl, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import type { SiteMeta } from "@/types";
 import type { GetStaticPaths, Page } from "astro";
@@ -23,8 +23,11 @@ interface Props {
 
 const { page, uniqueTags } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const meta: SiteMeta = {
-	description: "Read my collection of posts and the things that interest me",
+	description: "Baca koleksi tulisan saya dan hal-hal yang menarik bagi saya",
 	title: "Posts",
 };
 
@@ -104,7 +107,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 					</ul>
 					<span class="mt-4 block sm:text-end">
 						<a aria-label="View all blog categories" class="sm:hover:text-accent" href="/tags/">
-							View all →
+							{t("common.viewAll")} →
 						</a>
 					</span>
 				</aside>

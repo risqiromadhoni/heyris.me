@@ -58,6 +58,7 @@ const experience = defineCollection({
 				.transform((str) => (str ? new Date(str) : undefined)),
 			description: z.string().min(50).max(300),
 		}),
+	type: "content",
 });
 
 export const collections = { post, experience };

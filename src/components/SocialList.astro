@@ -1,10 +1,14 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n";
 import { Icon } from "astro-icon/components";
 import { socialLinks } from "../constant";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="flex flex-wrap items-end gap-x-2">
-	<p>Find me on:</p>
+	<p>{t("social.findMe")}:</p>
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
 			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (

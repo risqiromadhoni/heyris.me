@@ -1,20 +1,24 @@
 ---
-import { menuLinks } from "@/site.config";
+import { defaultLang, getLangFromUrl, useTranslations } from "@/i18n";
+import { menuLinks, siteConfig } from "@/site.config";
+import LanguageToggle from "../LanguageToggle.astro";
 import LogoTheme from "../LogoTheme.astro";
 import ThemeToggle from "../ThemeToggle.astro";
 
 const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="group relative mb-28 flex items-center sm:ps-[4.5rem]" id="main-header">
 	<div class="flex flex-1 sm:flex-col">
 		<a
-			aria-current={url.pathname === "/" ? "page" : false}
+			aria-current={["/", "/id/"].includes(url.pathname) ? "page" : false}
 			class="inline-flex items-center sm:relative sm:inline-block"
-			href="/"
+			href={lang === defaultLang ? "/" : "/id"}
 		>
 			<LogoTheme />
-			<span class="text-xl font-bold">Risqi Romadhoni</span>
+			<span class="text-xl font-bold">{siteConfig.author}</span>
 		</a>
 		<nav
 			aria-label="Main menu"
@@ -27,9 +31,9 @@ const url = new URL(Astro.request.url);
 						aria-current={url.pathname === link.path ? "page" : false}
 						class="px-4 py-4 underline-offset-2 sm:py-0 sm:hover:underline"
 						data-astro-prefetch
-						href={link.path}
+						href={lang === defaultLang ? link.path : `/${lang}${link.path}`}
 					>
-						{link.title}
+						{t(link.title)}
 					</a>
 				))
 			}
@@ -50,6 +54,7 @@ const url = new URL(Astro.request.url);
 			Download CV
 		</span>
 	</a> -->
+	<LanguageToggle />
 	<ThemeToggle />
 	<mobile-button>
 		<button

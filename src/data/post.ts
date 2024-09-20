@@ -1,12 +1,20 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { contentSlugLang, defaultLang } from "@/i18n";
 import { siteConfig } from "@/site.config";
 
 /** filter out draft posts based on the environment */
-export async function getAllPosts() {
-	return await getCollection("post", (post: CollectionEntry<"post">) => {
-		return import.meta.env.PROD ? !post.data.draft : true;
+export async function getAllPosts(lang = defaultLang) {
+	const posts = await getCollection("post", (post: CollectionEntry<"post">) => {
+		return post.id.startsWith(`${lang}/`);
 	});
+	return posts.map(
+		(post) =>
+			({
+				...post,
+				slug: contentSlugLang(post.slug, "posts", lang),
+			}) as CollectionEntry<"post">,
+	);
 }
 
 /** returns the date of the post based on option in siteConfig.sortPostsByUpdatedDate */

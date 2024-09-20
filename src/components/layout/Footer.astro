@@ -1,7 +1,10 @@
 ---
+import { defaultLang, getLangFromUrl, useTranslations } from "@/i18n";
 import { menuLinks, siteConfig } from "@/site.config";
 
 const year = new Date().getFullYear();
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer
@@ -27,8 +30,11 @@ const year = new Date().getFullYear();
 	>
 		{
 			menuLinks.map((link) => (
-				<a class="px-4 py-2 sm:py-0 sm:hover:text-textColor sm:hover:underline" href={link.path}>
-					{link.title}
+				<a
+					class="px-4 py-2 sm:py-0 sm:hover:text-textColor sm:hover:underline"
+					href={lang === defaultLang ? link.path : `/${lang}${link.path}`}
+				>
+					{t(link.title)}
 				</a>
 			))
 		}

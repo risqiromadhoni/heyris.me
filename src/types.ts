@@ -1,3 +1,5 @@
+import type { languages } from "./i18n/ui";
+
 export interface SiteConfig {
 	author: string;
 	site: string;
@@ -6,7 +8,7 @@ export interface SiteConfig {
 		options: Intl.DateTimeFormatOptions;
 	};
 	description: string;
-	lang: string;
+	lang: keyof typeof languages;
 	ogLocale: string;
 	sortPostsByUpdatedDate: boolean;
 	title: string;

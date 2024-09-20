@@ -1,0 +1,79 @@
+---
+import { getLangFromUrl, getPathWithoutLang, languages, useTranslatedPath } from "@/i18n";
+import { Icon } from "astro-icon/components";
+
+const currentUrl = Astro.url;
+const currentPath = getPathWithoutLang(currentUrl);
+const lang = getLangFromUrl(currentUrl);
+const translatePath = useTranslatedPath(lang);
+---
+
+<language-toggle class="relative">
+	<button
+		aria-expanded="false"
+		aria-haspopup="menu"
+		aria-label="Change language"
+		title="Change language"
+		type="button"
+		id="language-toggle"
+		class="flex transform items-center justify-center gap-2 rounded-md p-2 ring-zinc-400 transition-transform duration-300 hover:ring-2 last:[&>svg]:aria-expanded:rotate-180"
+	>
+		<Icon name={lang} title={languages[lang]} class="h-5 w-5 rounded-full" />
+		<Icon name="mdi:chevron-down" class="h-5 w-5" />
+	</button>
+	<div
+		id="language-choices"
+		role="listbox"
+		class="absolute right-0 top-10 z-10 hidden w-max rounded-md bg-bgColor p-2 shadow-md shadow-accent"
+	>
+		<div class="flex flex-col gap-2">
+			{
+				Object.entries(languages).map(([lang, label]) => (
+					<a
+						href={translatePath(currentPath, lang)}
+						role="button"
+						title={label}
+						class="flex w-full flex-row items-center gap-2 rounded-md bg-bgColor p-2 hover:bg-accent hover:text-slate-950"
+					>
+						<Icon name={lang} class="h-5 w-5 rounded-full" />
+						<span>{label}</span>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</language-toggle>
+
+<script>
+	class LanguageToggle extends HTMLElement {
+		handleClickOutside(e: MouseEvent) {
+			e.preventDefault();
+			// @ts-ignore
+			if (!e.target?.closest("#language-toggle") && !e.target?.closest("#language-choices")) {
+				const btnChangeLanguage = document.getElementById("language-toggle");
+				const languageChoices = document.getElementById("language-choices");
+				btnChangeLanguage?.setAttribute("aria-expanded", "false");
+				languageChoices?.classList.add("hidden");
+			}
+		}
+
+		connectedCallback() {
+			const btnChangeLanguage = document.getElementById("language-toggle");
+			const languageChoices = document.getElementById("language-choices");
+
+			btnChangeLanguage?.addEventListener("click", () => {
+				// should change aria-expanded attribute
+				const isExpanded = btnChangeLanguage.getAttribute("aria-expanded") === "true";
+				btnChangeLanguage.setAttribute("aria-expanded", String(!isExpanded));
+				languageChoices?.classList.toggle("hidden");
+			});
+
+			document.addEventListener("click", this.handleClickOutside);
+		}
+
+		disconnectedCallback() {
+			document.removeEventListener("click", this.handleClickOutside);
+		}
+	}
+	customElements.define("language-toggle", LanguageToggle);
+</script>

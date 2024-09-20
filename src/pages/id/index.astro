@@ -11,26 +11,26 @@ const allPosts = await getAllPosts(lang);
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
-<PageLayout meta={{ title: "Home" }}>
+<PageLayout meta={{ title: "Beranda" }}>
 	<section>
-		<h1 class="title mb-6">hey, I'm Risqi <span class="wave">👋</span></h1>
+		<h1 class="title mb-6">hey, Saya Risqi <span class="wave">👋</span></h1>
 		<p class="mb-4">
-			As a Software Engineer with <a
+			Sebagai seorang Software Engineer dengan pengalaman 🔥 <a
 				href="/about#working-experiences"
-				class="underline decoration-dashed hover:cursor-pointer hover:text-link">+7 years</a
-			> of experience 🔥, I have a passion for building and maintaining scalable, performant, and reliable
-			software systems. I'm a self-taught developer who loves to learn new things and share knowledge
-			with others. Loving gardening in hydroponics 🪴 and aquaponics 🪷 when I'm not coding 🧑🏻‍💻.
+				class="underline decoration-dashed hover:cursor-pointer hover:text-link">+7 tahun</a
+			>, saya memiliki hasrat untuk membangun dan memelihara sistem perangkat lunak yang skalabel,
+			berkinerja tinggi, dan andal. Saya adalah pengembang otodidak yang senang belajar hal-hal baru
+			dan berbagi pengetahuan dengan orang lain. Menyukai berkebun dengan hidroponik 🪴 dan
+			akuaponik 🪷 saat saya tidak sedang coding 🧑🏻‍💻.
 		</p>
-		<SocialList />
+		<SocialList lang={lang} />
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-4 text-xl">Latest Post ✨</h2>
+		<h2 class="title mb-4 text-xl">Post Terbaru ✨</h2>
 		<ul class="space-y-4">
 			{
 				allPostsByDate.map((p) => (
 					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
-						{/* @ts-expect-error - issue with -> @astrojs/check@0.9.3 */}
 						<PostPreview post={p} />
 					</li>
 				))

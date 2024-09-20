@@ -1,6 +1,7 @@
 import type { SiteConfig } from "@/types";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
+import { LANGUAGE, type TranslationKey } from "./i18n";
 
 export const siteConfig: SiteConfig = {
 	author: "Risqi Romadhoni",
@@ -15,7 +16,7 @@ export const siteConfig: SiteConfig = {
 	},
 	description:
 		"An personal blog about web development, programming, and technology.",
-	lang: "en-US",
+	lang: LANGUAGE.ENGLISH,
 	ogLocale: "en_US",
 	sortPostsByUpdatedDate: false,
 	title: "Risqi Romadhoni",
@@ -25,22 +26,22 @@ export const siteConfig: SiteConfig = {
 };
 
 // Used to generate links in both the Header & Footer.
-export const menuLinks: { path: string; title: string }[] = [
+export const menuLinks: { path: string; title: TranslationKey }[] = [
 	{
 		path: "/about/",
-		title: "About",
+		title: "menu.about",
 	},
 	{
 		path: "/posts/",
-		title: "Blog",
+		title: "menu.post",
 	},
 	{
 		path: "/projects/",
-		title: "Projects",
+		title: "menu.project",
 	},
 	{
 		path: "/resources/",
-		title: "Resources",
+		title: "menu.resource",
 	},
 ];
 

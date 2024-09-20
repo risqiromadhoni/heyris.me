@@ -8,4 +8,7 @@
 
 /images
   Access-Control-Allow-Origin: *
-    X-Robots-Tag: nosnippet
+  X-Robots-Tag: nosnippet
+
+/cdn-cgi/scripts/*
+  Cache-Control: public, max-age=14400

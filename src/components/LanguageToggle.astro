@@ -47,7 +47,6 @@ const translatePath = useTranslatedPath(lang);
 <script>
 	class LanguageToggle extends HTMLElement {
 		handleClickOutside(e: MouseEvent) {
-			e.preventDefault();
 			// @ts-ignore
 			if (!e.target?.closest("#language-toggle") && !e.target?.closest("#language-choices")) {
 				const btnChangeLanguage = document.getElementById("language-toggle");

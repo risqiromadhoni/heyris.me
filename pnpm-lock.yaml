@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@astrojs/mdx':
-        specifier: 3.1.5
-        version: 3.1.5(astro@4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4))
+        specifier: 3.1.7
+        version: 3.1.7(astro@4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4))
       '@astrojs/partytown':
         specifier: ^2.1.2
         version: 2.1.2
@@ -173,8 +173,8 @@ packages:
   '@astrojs/markdown-remark@5.2.0':
     resolution: {integrity: sha512-vWGM24KZXz11jR3JO+oqYU3T2qpuOi4uGivJ9SQLCAI01+vEkHC60YJMRvHPc+hwd60F7euNs1PeOEixIIiNQw==}
 
-  '@astrojs/mdx@3.1.5':
-    resolution: {integrity: sha512-Fu6oShqcDpi0D1b2/3Pg3ao1I+Q2YqKhFsSsuDzn0YhdGrry5oUyABUyCyGq/OayP2P/34Vwj+GCQ/n9h8FlTQ==}
+  '@astrojs/mdx@3.1.7':
+    resolution: {integrity: sha512-8lGdCt+S0TrZgQpbcP3fQJc4cTeacAirtz9TpAMtHCWrQGW8slKt3WG4/0N+bhZgYRC4h5AT5drzFz+y3wvmsg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       astro: ^4.8.0
@@ -3409,7 +3409,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.5(astro@4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4))':
+  '@astrojs/mdx@3.1.7(astro@4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4))':
     dependencies:
       '@astrojs/markdown-remark': 5.2.0
       '@mdx-js/mdx': 3.0.1

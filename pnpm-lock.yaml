@@ -24,8 +24,8 @@ importers:
         specifier: 5.1.0
         version: 5.1.0(astro@4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4))(tailwindcss@3.4.10)
       '@expressive-code/plugin-line-numbers':
-        specifier: ^0.36.1
-        version: 0.36.1
+        specifier: ^0.37.0
+        version: 0.37.0
       astro:
         specifier: 4.15.1
         version: 4.15.1(@types/node@22.5.1)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4)
@@ -523,11 +523,14 @@ packages:
   '@expressive-code/core@0.36.1':
     resolution: {integrity: sha512-9Y+vLlDEQeRQiPKTtab0NRmnUwS8GkJxobwvsXKoqWrRTWyVjV0VLI7BwXFUVVbbuuvMnwXpzfxY2mC64n3Jow==}
 
+  '@expressive-code/core@0.37.0':
+    resolution: {integrity: sha512-uCPAaQ//5RZeeKAN9cMyGH8YIm+h1Rldy34IWMbsCECrFVo86w+eR67jVWoQ2HNe0dSZ4XTdgJKYEScuVcy2Cw==}
+
   '@expressive-code/plugin-frames@0.36.1':
     resolution: {integrity: sha512-HAWH5gcX7avdtKhwSp/RLtqqEq04/JFOIQ6enAClHY8Kbr3c5T+C0Ki6G/3IVKnIjy2y0U7E6b9dOqzKSsanxw==}
 
-  '@expressive-code/plugin-line-numbers@0.36.1':
-    resolution: {integrity: sha512-UfXxOqSMbFQhWeclUInUvwVjatSeoJBP5W1R3gCx4aYTUB5zCDZScYAMsmG0WFe5Lz9OlCEdCicHOF3dbqXrLw==}
+  '@expressive-code/plugin-line-numbers@0.37.0':
+    resolution: {integrity: sha512-np3Z51zYycO9zYaiqH51LPsn7PFGIcENhD5l0iAy+RrJNK4b213VvydVWgqLq87efZtCXg+lMuY/U8P4lCAPMw==}
 
   '@expressive-code/plugin-shiki@0.36.1':
     resolution: {integrity: sha512-nmzJ2TUHBDtYgOzDONTKt27n2B9S++hmvPxlPM1HZtjwO+2fhGGGW7M3VfO//6FIlcD4X36jy38DfPB4T9/m3Q==}
@@ -3757,13 +3760,25 @@ snapshots:
       unist-util-visit: 5.0.0
       unist-util-visit-parents: 6.0.1
 
+  '@expressive-code/core@0.37.0':
+    dependencies:
+      '@ctrl/tinycolor': 4.1.0
+      hast-util-select: 6.0.2
+      hast-util-to-html: 9.0.2
+      hast-util-to-text: 4.0.2
+      hastscript: 9.0.0
+      postcss: 8.4.43
+      postcss-nested: 6.2.0(postcss@8.4.43)
+      unist-util-visit: 5.0.0
+      unist-util-visit-parents: 6.0.1
+
   '@expressive-code/plugin-frames@0.36.1':
     dependencies:
       '@expressive-code/core': 0.36.1
 
-  '@expressive-code/plugin-line-numbers@0.36.1':
+  '@expressive-code/plugin-line-numbers@0.37.0':
     dependencies:
-      '@expressive-code/core': 0.36.1
+      '@expressive-code/core': 0.37.0
 
   '@expressive-code/plugin-shiki@0.36.1':
     dependencies:

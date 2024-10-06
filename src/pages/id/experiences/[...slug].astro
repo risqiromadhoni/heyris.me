@@ -5,9 +5,9 @@ import ExperienceLayout from "@/layouts/Experience.astro";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 export const getStaticPaths = (async () => {
-	const blogEntries = await getAllExperiences(LANGUAGE.ENGLISH);
+	const blogEntries = await getAllExperiences(LANGUAGE.INDONESIA);
 	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.slug.split("/").at(-1) },
 		props: { entry },
 	}));
 }) satisfies GetStaticPaths;

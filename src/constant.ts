@@ -25,14 +25,13 @@ export const socialLinks: SocialLink[] = [
 		isWebmention: true,
 	},
 	{
-		friendlyName: "WhatsApp",
-		link: "https://wa.me/+6289692209988",
-		name: "mdi:whatsapp",
-		isWebmention: true,
-	},
-	{
 		friendlyName: "Email",
 		link: "mailto:risqi.romadhoni96@gmail.com",
 		name: "mdi:gmail",
+	},
+	{
+		friendlyName: "Google Developer Program",
+		link: "https://g.dev/risqiromadhoni",
+		name: "mdi:google",
 	},
 ];

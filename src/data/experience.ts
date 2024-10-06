@@ -1,8 +1,15 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { contentSlugLang, defaultLang } from "@/i18n";
 
-export async function getAllExperiences() {
-	return await getCollection("experience", () => true);
+export async function getAllExperiences(lang = defaultLang) {
+	const experiences = await getCollection("experience", (experience) =>
+		experience.id.startsWith(`${lang}/`),
+	);
+	return experiences.map((exp) => ({
+		...exp,
+		slug: contentSlugLang(exp.slug, "posts", lang),
+	})) as CollectionEntry<"experience">[];
 }
 
 export function getExperienceSortStartDate(

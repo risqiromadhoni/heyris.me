@@ -9,7 +9,7 @@ contract: "Freelance"
 category: "Remote"
 startAt: "2022-05-01"
 endAt: "2022-11-01"
-description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium iste"
+description: "Hired as a Front-End React.js Developer at a US-based company, built UI/UX from Figma to React.js, designed internal design guidelines for local components, and optimized website speed using Redux and IndexedDB"
 ---
 
 ## Hello World

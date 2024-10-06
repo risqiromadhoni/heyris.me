@@ -16,7 +16,7 @@ const meta = {
 	title: t("page.about.title"),
 };
 const githubLink = socialLinks.find((link) => link.name.includes("github"));
-const experiences = await getAllExperiences();
+const experiences = await getAllExperiences(lang);
 const sortedExperiences = sortExperienceByDate(experiences);
 ---
 
@@ -41,21 +41,21 @@ const sortedExperiences = sortExperienceByDate(experiences);
 			/>
 		</a>
 	</section>
-	<section aria-label="Leanguages" class="mt-16">
-		<h2 class="title mb-4 text-xl">Leanguages</h2>
+	<section aria-label={t("language")} class="mt-16">
+		<h2 class="title mb-4 text-xl">{t("language")}</h2>
 		<ul class="max-w-full">
 			<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
 				<p class="min-w-32 text-accent-2">Indonesia</p>
-				<p>Native proficiency (oral and written)</p>
+				<p>{t("language.proficiency")}</p>
 			</li>
 			<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
 				<p class="min-w-32 text-accent-2">English</p>
-				<p>Profesional proficiency (oral and written)</p>
+				<p>{t("language.proficiency2")}</p>
 			</li>
 		</ul>
 	</section>
-	<section id="working-experiences" aria-label="Working Experiences" class="mt-16">
-		<h2 class="title mb-6 text-xl">Working Experiences</h2>
+	<section id="working-experiences" aria-label={t("workExperience.title")} class="mt-16">
+		<h2 class="title mb-6 text-xl">{t("workExperience.title")}</h2>
 		<div class="space-y-4" role="listbox">
 			<ul class="flex w-full flex-col" role="list">
 				{

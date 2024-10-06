@@ -56,7 +56,7 @@ const experience = defineCollection({
 				.string()
 				.optional()
 				.transform((str) => (str ? new Date(str) : undefined)),
-			description: z.string().min(50).max(300),
+			description: z.string().min(50),
 		}),
 	type: "content",
 });

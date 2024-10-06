@@ -5,11 +5,15 @@ import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
 
 import { MastheadExperience } from "@/components/masthead";
+import { getLangFromUrl, useTranslations } from "@/i18n";
 import BaseLayout from "./Base.astro";
 
 interface Props {
 	experience: CollectionEntry<"experience">;
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { experience } = Astro.props;
 const {
@@ -18,7 +22,7 @@ const {
 } = experience;
 const articleDate = new Date(experience.data.startAt).toISOString();
 const socialImage = `/og-image/${slug}.png`;
-const title = `Working experience at ${company.name}`;
+const title = `${t("experiences.title")} ${company.name}`;
 const { headings } = await experience.render();
 ---
 

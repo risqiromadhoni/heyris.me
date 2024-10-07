@@ -1,14 +1,13 @@
 ---
 coverImage:
-  src: "@/assets/blogs/what-is-monorepo.png"
-  alt: "image by voiceflow.com"
-  url: "https://www.voiceflow.com/"
-title: "What is Monorepo?"
-description: "Learn what monorepo is, its benefits, challenges, and how to implement it with pnpm and GitHub. A complete guide for experienced software engineers."
-publishDate: "5 Oct 2024"
-tags: ["git", "monorepo", "management"]
+  src: "@/assets/blogs/why-turborepo-solution.avif"
+  alt: "image by turbo.build"
+  url: "https://turbo.build/"
+title: "Turborepo's Role in Our Monorepo"
+description: "Pelajari bagaimana Turborepo dapat meningkatkan efisiensi dan kolaborasi dalam pengelolaan monorepo Anda dengan pnpm dan GitHub."
+publishDate: "6 Oct 2024"
+tags: ["vercel", "monorepo", "turborepo"]
 ---
-
 As a software engineer with over 7 years of experience, I have witnessed the evolution of code management in large projects. One increasingly popular approach is the use of monorepos. Let's discuss what a monorepo is, its benefits, challenges, and how to implement it using pnpm and GitHub.
 
 ## Understanding Monorepo
@@ -18,7 +17,7 @@ A monorepo, short for "monolithic repository," is a software development strateg
 ## Benefits of Using Monorepo
 
 1. **Code Sharing**: Facilitates sharing and reusing code across projects.
-2. **Large-Scale Refactoring**: Changes can be applied to the entire codebase more easily.
+2. **Large-scale Refactoring**: Changes can be applied to the entire codebase more easily.
 3. **Dependency Management**: Ensures consistency of dependency versions across projects.
 4. **Team Collaboration**: Enhances visibility and collaboration among different teams.
 5. **Atomic Commits**: Allows changes involving multiple projects in a single commit.
@@ -35,41 +34,41 @@ A monorepo, short for "monolithic repository," is a software development strateg
 pnpm is a package manager well-suited for monorepos due to its workspace features. Here are the basic steps to set up a monorepo with pnpm:
 
 1. Initialize the project:
-  ```bash
-  mkdir my-monorepo && cd my-monorepo
-  pnpm init
-  ```
+   ```bash
+   mkdir my-monorepo && cd my-monorepo
+   pnpm init
+   ```
 
 2. Create a `pnpm-workspace.yaml` file:
-  ```yaml
-  packages:
-    - 'packages/*'
-  ```
+   ```yaml
+   packages:
+     - 'packages/*'
+   ```
 
 3. Create the folder structure:
-  ```bash
-  mkdir packages
-  mkdir packages/project-a packages/project-b
-  ```
+   ```bash
+   mkdir packages
+   mkdir packages/project-a packages/project-b
+   ```
 
 4. Initialize sub-projects:
-  ```bash
-  cd packages/project-a && pnpm init
-  cd ../project-b && pnpm init
-  ```
+   ```bash
+   cd packages/project-a && pnpm init
+   cd ../project-b && pnpm init
+   ```
 
 5. Add scripts in the main `./package.json`:
-  ```json title="package.json"
-  {
-    "scripts": {
-     "dev": "pnpm -r run dev",
-     "build": "pnpm -r run build",
-     "test": "pnpm -r run test"
-    }
-  }
-  ```
+   ```json title="package.json"
+   {
+     "scripts": {
+       "dev": "pnpm -r run dev",
+       "build": "pnpm -r run build",
+       "test": "pnpm -r run test"
+     }
+   }
+   ```
 
-## Example Monorepo Repository Tree Structure
+## Example Monorepo Directory Structure
 
 Here is an example folder structure for a monorepo using pnpm:
 
@@ -100,19 +99,19 @@ my-monorepo/
 │   └── build-scripts/
 │       └── build.js
 └── docs/
-   ├── project-a/
-   │   └── README.md
-   └── project-b/
-      └── README.md
+    ├── project-a/
+    │   └── README.md
+    └── project-b/
+        └── README.md
 ```
 
 In this structure:
 
 - `packages/` contains all sub-projects or packages.
 - `project-a/` and `project-b/` are examples of separate projects within the monorepo.
-- `shared-utils/` is an example of a package that can be used by other projects.
+- `shared-utils/` is an example of a package that can be shared by other projects.
 - `tools/` contains build scripts or other utilities used across the monorepo.
-- `docs/` stores documentation for each project.
+- `docs/` holds documentation for each project.
 
 ## Managing Monorepo with GitHub
 

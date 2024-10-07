@@ -1,14 +1,13 @@
 ---
 coverImage:
-  src: "@/assets/blogs/what-is-monorepo.png"
-  alt: "image by voiceflow.com"
-  url: "https://www.voiceflow.com/"
-title: "Apa itu Monorepo?"
-description: "Pelajari apa itu monorepo, manfaat, tantangan, dan cara mengimplementasikannya dengan pnpm dan GitHub. Panduan lengkap untuk software engineer berpengalaman."
-publishDate: "5 Oct 2024"
-tags: ["git", "monorepo", "management"]
+  src: "@/assets/blogs/why-turborepo-solution.avif"
+  alt: "image by turbo.build"
+  url: "https://turbo.build/"
+title: "Peran Turborepo Dalam Monorepo Kita"
+description: "Pelajari bagaimana Turborepo dapat meningkatkan efisiensi dan kolaborasi dalam pengelolaan monorepo Anda dengan pnpm dan GitHub."
+publishDate: "6 Oct 2024"
+tags: ["vercel", "monorepo", "turborepo"]
 ---
-
 Sebagai seorang software engineer dengan pengalaman lebih dari 7 tahun, saya telah menyaksikan evolusi manajemen kode dalam proyek-proyek besar. Salah satu pendekatan yang semakin populer adalah penggunaan monorepo. Mari kita bahas apa itu monorepo, manfaatnya, tantangannya, dan bagaimana mengimplementasikannya menggunakan pnpm dan GitHub.
 
 ## Pengertian Monorepo

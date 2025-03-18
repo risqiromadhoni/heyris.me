@@ -1,6 +1,7 @@
 ---
 import { defaultLang, getLangFromUrl, useTranslations } from "@/i18n";
 import { menuLinks, siteConfig } from "@/site.config";
+import { Icon } from "astro-icon/components";
 
 const year = new Date().getFullYear();
 const lang = getLangFromUrl(Astro.url);
@@ -20,8 +21,8 @@ const t = useTranslations(lang);
 				rel="noopener noreferrer"
 				class="hover:text-orange-400"
 			>
-				☁️ Cloudflare</a
-			>
+				Cloudflare
+			</a>
 		</span>
 	</div>
 	<nav
